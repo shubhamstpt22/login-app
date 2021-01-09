@@ -33,7 +33,7 @@ loginUser(user):Observable<any>{
     if(this.userData[i].userName===user.userName && this.userData[i].password === user.password){
       // let response = {status:true, message:'authorised user', id:this.userData[i].id};
       // return of(response);
-      return this.http.post<any>(`https://demo7653731.mockable.io/dty`,{user}).pipe((response:any)=>{
+      return this.http.post<any>(`https://demo7653731.mockable.io/login_success`,{user}).pipe((response:any)=>{ 
         if(response){
           this.user = this.userData[i];
           return response;
@@ -43,7 +43,7 @@ loginUser(user):Observable<any>{
     }
 
   }
-  return this.http.post<any>(`https://demo7653731.mockable.io/err`,{user}).pipe((response:any)=>{
+  return this.http.post<any>(`https://demo7653731.mockable.io/login_fail`,{user}).pipe((response:any)=>{
     if(response){
       return response;
     }
