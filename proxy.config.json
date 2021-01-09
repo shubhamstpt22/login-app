@@ -1,0 +1,7 @@
+{
+    "/new/*":{
+    "target":" https://demo7653731.mockable.io",
+    "secure":false,
+    "logLevel":"debug"
+    }
+}

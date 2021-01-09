@@ -1,1 +1,44 @@
-<p>registration-page works!</p>
+<div class="full-height-width flex-center" *ngIf="!loadData">
+    <mat-card class="register-card">
+        <mat-card-content>
+            <mat-toolbar color="primary" class="full-width"> Registration page</mat-toolbar>
+            <form #regForm="ngForm" class="layout-column cmd-padding pa24">
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter First Name</mat-label>
+                        <input matInput placeholder="Placeholder" name="fname" [(ngModel)]="user.firstName"  (ngModelChange)="changEvent()" required>
+                    </mat-form-field>
+                </div>
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter Last  Name</mat-label>
+                        <input matInput placeholder="Placeholder" name="lname" [(ngModel)]="user.lastName" (ngModelChange)="changEvent()" required>
+                    </mat-form-field>
+                </div>
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter Username</mat-label> 
+                        <input matInput placeholder="Placeholder" name="username" [(ngModel)]="user.userName" (ngModelChange)="changEvent()" required>
+                    </mat-form-field>
+                </div>
+    
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter Password</mat-label>
+                        <input matInput placeholder="Password"  name="pwd" [(ngModel)]="user.password" (ngModelChange)="changEvent()" required>
+                    </mat-form-field>
+                </div>
+                <div class="cmd-warning" *ngIf="duplicateEntry"> {{displayMsg}}! </div>
+                <div  *ngIf="duplicateEntry===false" class="alert-msg"> {{this.displayMsg}}! </div>
+                <div class="layout-row end cmd-margin mv">
+                    <ng-container *ngIf="duplicateEntry!==false">
+                        <button mat-raised-button color="primary" class="cmd-margin mr" (click)="registerUser()" [disabled]="regForm.invalid"> Register </button>
+                        <button mat-button color="primary" [routerLink]="'/login'"> Dismiss </button>
+                    </ng-container>
+                    <button mat-raised-button color="primary" *ngIf="duplicateEntry===false" [routerLink]="'/login'"> Log In</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+    

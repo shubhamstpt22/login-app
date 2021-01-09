@@ -1,4 +1,29 @@
-<mat-card>
-    <div>Login page</div>
+<div class="full-height-width flex-center">
+    <mat-card class="login-card">
+        <mat-card-content>
+            <mat-toolbar color="primary" class="full-width"> Login page</mat-toolbar>
+            <div class="layout-column cmd-padding pa24">
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter Username</mat-label>
+                        <input matInput placeholder="User Name" [(ngModel)]="user.userName">
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="layout-row center">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Enter Password</mat-label>
+                        <input matInput type="{{hideShowType}}" placeholder="Password" [(ngModel)]="user.password">
+                        <mat-icon matSuffix (click)="hideShow(hideShowIcon)" class="cursor-pointer">{{hideShowIcon}}</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="cmd-warning" *ngIf="invalidUser"> Username or password is incorrect!</div>
+                <div class="layout-row end cmd-margin mv">
+                    <button mat-raised-button color="primary" class="cmd-margin mr" (click)="login(user)"> Login </button>
+                    <button mat-button color="primary" [routerLink]="'/registration'"> Register </button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
 
-</mat-card>
+</div>

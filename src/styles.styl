@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.layout-row
+    display:flex;
+    flex-direction: row;
+    &.center
+        justify-content: center;
+    &.end
+        justify-content: flex-end;
+
+
+
+
+.layout-column
+    display:flex;
+    flex-direction: column;
+
+.flex
+    display: flex;
+    flex: 1;
+
+.flex-center
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+.space-between
+    justify-content: space-between;
+
+.full-height-width
+    height: 100%;
+    width: 100%;
+
+.full-width
+    width: 100% !important;
+
+.cmd-padding
+    &.pa24
+        padding: 24px;
+    &.prh
+        padding-right: 8px;
+
+.cmd-margin
+    &.mr
+        margin-right: 16px;
+    &.mv
+        margin: 16px 0px 16px 0px;
+
+.cmd-warning
+    color: red !important;
+
+.cursor-pointer
+    cursor: pointer !important;
+
+
