@@ -21,23 +21,23 @@ param:any;
 loadingData:boolean;
 userData:any;
 /**************************************Methods**************************************/
+
 ngOnInit() {
   this.loadingData===true;
    this.param = this.activatedRoute.snapshot.queryParams;
-
   this.getUserData();
-
 }
 
+/* Check for user data with id from route */ 
 getUserData(){
   this.authService.getUserDetailsById(this.param.id).subscribe(data =>{
     console.log(data);
     this.userData = data;
     this.loadingData===false;
-
   });
-
 }
+
+/* logging out and navigating to login pages */ 
 logout(){
   this.router.navigate(['login'])
 }

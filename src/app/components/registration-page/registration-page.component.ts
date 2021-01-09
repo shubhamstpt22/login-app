@@ -23,12 +23,15 @@ user;
 duplicateEntry:boolean=null;
 displayMsg = '';
 /**************************************Methods**************************************/
+
   ngOnInit() {
     this.user={};
-
   }
 
+  /* registration of new user */
   registerUser(){
+
+    /* creating random key for id */
     var d = new Date();
     var n = d.getTime();
     this.user.id = n;
@@ -46,6 +49,8 @@ displayMsg = '';
     });
 
   }
+
+  /* checking for change event in input field */
   changEvent(){
     this.duplicateEntry =null;
   }
